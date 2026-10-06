@@ -1,0 +1,46 @@
+# Appendix 1 – Figure 2
+
+This folder contains the Fiji/ImageJ and MATLAB source code and associated source data used for the STED radial-profile and focal-adhesion edge-enrichment analyses shown in Appendix 1 – Figure 2C–D.
+
+## Files
+
+- `Appendix1_Figure2_SourceCode1_Fiji.zip`
+  Fiji/ImageJ macros used to generate radial regions from focal-adhesion boundaries and measure fluorescence intensity.
+
+- `Appendix1_Figure2_SourceCode2_MATLAB.zip`
+  MATLAB scripts used to process radial fluorescence profiles, calculate edge enrichment, and generate the final plots.
+
+- `Appendix1_Figure2_SourceData1.xlsx`
+  Processed source data used for figure generation and quantitative comparisons.
+
+## Analysis workflow
+
+### Fiji/ImageJ
+
+Consecutive 60-nm radial regions are generated inward from a manually defined focal-adhesion boundary.
+
+Raw mean fluorescence intensity is measured within each radial region up to 1000 nm from the FA edge.
+
+The Fiji macros perform the spatial measurements only; normalization, averaging, SEM calculation, edge-enrichment analysis, and statistical testing are subsequently performed in MATLAB.
+
+### MATLAB
+
+For each focal adhesion and fluorescence channel, the MATLAB analysis:
+
+- subtracts the minimum intensity from the individual radial profile;
+- normalizes each profile to its maximum value;
+- interpolates profiles onto a common radial-distance grid;
+- calculates mean normalized intensity and SEM across focal adhesions;
+- reports the final radial profiles up to 600 nm from the FA edge;
+- calculates FA-level edge enrichment.
+
+Edge enrichment is calculated as:
+
+`mean normalized intensity at 60–180 nm / mean normalized intensity at 180–600 nm`
+
+The final plotting script generates normalized radial fluorescence profiles and FA-level edge-enrichment plots and performs two-sided Welch's t-tests for edge-enrichment comparisons.
+
+## Software
+
+- Fiji/ImageJ
+- MATLAB (MathWorks)
